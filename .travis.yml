@@ -1,0 +1,5 @@
+script:
+  - NIXCONFIG_PATH=$TRAVIS_BUILD_DIR ./bootstrap.sh
+os:
+  - linux
+  - osx
