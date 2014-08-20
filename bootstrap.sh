@@ -50,8 +50,4 @@ fi
 # Now we install our standard environment.
 nix-env -i userEnv
 
-# And replace the configuration with a full git clone.
-rm -rf .config/nix
-git clone $REPO_URL .config/nix
-
 popd
