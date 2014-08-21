@@ -27,12 +27,12 @@ fi
 # If the path is not overriden, fetch the configuration from the repository.
 if [ -z $NIXCONFIG_PATH ]; then
 	NIXCONFIG_PATH='$XDG_CONFIG_HOME/nix'
-	[[ -d $NIXCONFIG_PATH ]] || mkdir $NIXCONFIG_PATH
+	[[ -d $NIXCONFIG_PATH ]] || eval mkdir -p $NIXCONFIG_PATH
 
-	echo "Downloading configuration tarball to $NIXCONFIG_PATH"
+	eval echo "Downloading configuration tarball to $NIXCONFIG_PATH"
 	# At this point, we may not have git available yet, so let's fetch a tarball.
 	curl --silent --location $REPO_URL/archive/master.tar.gz | \
-		tar -xz --directory $NIXCONFIG_PATH --strip-components=1
+		eval tar -xz --directory $NIXCONFIG_PATH --strip-components=1
 else
 	echo "Using local configuration: $NIXCONFIG_PATH"
 fi
